@@ -55,4 +55,6 @@ IN DISPLAY PAGE
 IN error.jsp
 =============================================================
 <%@ page language="java" isErrorPage="true"%>
+<h2 style="color:red">SOMETHING WENT WRONG</h2>
+EXCEPTION:<%=exception %>
 =============================================================
