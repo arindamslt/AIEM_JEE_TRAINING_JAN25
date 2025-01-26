@@ -1,0 +1,121 @@
+DATE:24.01.2024
+=======================================================
+JEE
+================================================
+JAVA ENTERPRISE EDITION
+==================================================
+WEB APPLICATION
+====================================================
+aiem@654123
+HTML
+==================================================================
+HYPER TEXT MARK UP LANGUAGE
+HTML IS USED STRUCTURE THE CONTENT IN THE WEB PAGE
+WEB PAGE
+=========================================
+THE ELECTRONIC PAGE WHICH DIPLAY SOME CONTENTS
+==============================================
+HTML NEED SOME ELEMENTS
+=====================================
+HEADING ELEMENT
+LIST ELEMENT
+DIV ELEMENT
+IMAGE ELEMENT
+TABLE ELEMENT
+=====================================================
+TO DEVELOP ELEMENTS WE NEED A SET OF TAGS
+TYPE OF TAGS
+========================================
+1.OPENING TAG
+2.CLOSING TAG
+3.SELF CLOSING TAG
+EX:
+<h2>      WELCOME   </h2>
+OEN TAGE ELEMENTS    CLOSING TAG
+<hr/><b/>
+DOCUMENT OF HTML
+=====================================
+<html>
+<head>
+<body>
+</body>
+</head>
+</html>
+
+MARKUP LANGUAGE
+===============================================
+A LANGUAGE IS CONSIDERED TO MARK UP IF THERE TAG,ATTRIBUTES AND PARAMETERS ARE THERE
+WEBSERVER 
+==========================
+EX:TOMCAT
+IT IS SUPPORT ONLY HTTP REQUEST
+APPLICATION SERVER
+=================================
+IT SUPPORT BOTH HTTP+FTP PROTOCOL
+EX:JBOSS,WEBLOGIC,WEBSPHERE
+==================================================
+HEADING AND PARAGRAPH
+LIST
+===========================================
+TYPES OF LIST ELEMENT
+=======================================
+ORDERED LIST
+UNORDERLIST
+DEFINATION LIST]
+LIST WITH ATTRIBUTES
+<h2 color="red></h2>
+TABLE
+NAVIGATION
+==================================================
+IT IS DONE BY ANCHOR TAG
+TWO TYPES OF NAVIGATION
+==================================
+INTER NAVIGATION
+INTRA NAVIGATION
+IFRAME
+FORM HANDELLING
+==============================================================================
+CSS
+=========================================================================
+CASCADING STYLESHEET
+IT IS STYLING LANGUAGE TO DESIGN THE HTML PAGE
+CSS PROPERTIES TO BE WRITTEN
+==================================
+KEY VALUE PAIR
+COLOR:"RED"
+TEXT-ALIGN:"CENTER"
+WAYS INTEGRATE CSS WITH HTML
+==================================
+BY THREE WAYS
+===================================
+1.INLINE CSS
+2.INTERNAL CSS
+3.EXTERNAL CSS
+====================================================
+DATE:25.01.2025
+====================================================
+SELETORS
+=============================================
+1.TAG NAME
+==============================
+h2{
+}
+p{
+}
+2.ID VALUE
+3.CLASS VALUE
+
+FLEX LAYOUT
+======================================================
+
+BOOTSTRAP
+=======================================================================================
+BOOTSTRAP IS A FRAMEWORK.
+IT WILL MAKE DESIGN MUCH MORE FASTER.
+HERE LOT OF TEMPLATE CLASSES ARE THERE
+
+
+
+
+
+
