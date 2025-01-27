@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>FORM VALIDATION</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"/>
+<script>
+	function validateData()
+	{
+		alert("HELLO");
+		var isValid=true;
+		
+		var uname=document.f1.uname.value;
+		var cno=document.f1.cno.value;
+		var pass=document.f1.pass.value;
+		var cpass=document.f1.cpass.value;
+		alert("USERNAME:"+uname);
+		alert("CONTACTNO:"+cno);
+		alert("PASSWORD:"+pass);
+		alert("CONFIRM PASSWORD:"+cpass);
+		if(uname==""||cno==""||pass==""||cpass=="")
+		{
+			alert("ALL FIELDS ARE MANDATORY");
+			isValid=false;
+		}
+		else if(cno.length>1 && cno.length<10)
+		{
+			alert("CONTACT NO MUST BE 10 DIGITS");
+			isValid=false;
+		}
+		else if(isNaN(cno))
+		{
+			alert("CONTACT  MUST BE IN DIGITS");
+			isValid=false;
+		}
+		else if(pass!=cpass)
+		{
+			alert("PASSWORD AND CONFIRM PASSWORD SHOULD BE SAME");
+			isValid=false;
+		}
+		return isValid;
+	}
+</script>
+</head>
+<body>
+	<div style="width:30%;margin:50px auto;">
+		<h2 class="text-primary">REGISTRATION FORM</h2>
+	<form name="f1" action="show.html" onsubmit=" return validateData()">
+		<lable class="form-label">USERNAME</lable>
+		<input class="form-control" type="text" name="uname" placeholder="ENTER THE USERNAME"/>
+		<lable class="form-label">CONTACT NO</lable>
+		<input class="form-control" type="text" name="cno" placeholder="ENTER THE CONTACT NO"/>
+		<lable class="form-label">PASSWORD</lable>
+		<input class="form-control" type="password" name="pass" placeholder="ENTER THE PASSWORD"/>
+	    <lable class="form-label">CONFIRM PASSWORD</lable>
+		<input class="form-control" type="password" name="cpass" placeholder="ENTER THE CONFIRM PASSWORD"/>
+		<input class="btn btn-outline-success" style="margin-top: 10px;" type="submit" value="REGISTER">
+	</form>
+     </div>
+</body>
+</html>
