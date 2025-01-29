@@ -23,3 +23,7 @@ ECLIPSE IDE INSTALLATION
 ================================================
 https://www.youtube.com/watch?v=Lh0VNWoieDQ
 ===============================================
+POSTGRESQL INSTALLATION
+====================================================
+https://www.youtube.com/watch?v=GpqJzWCcQXY
+===================================================

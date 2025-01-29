@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>EVENT HANDELLING 3</title>
+<script>
+	function changeColor(c)
+	{
+		document.body.style.backgroundColor=c.value;
+	}
+	function changeWeb(c)
+	{
+		window.open(c.value);
+	}
+</script>
+</head>
+<body>
+<div>
+	<select name="changcolor" onchange="changeColor(this)">
+		<option value="">CHOOSE COLOR</option>
+		<option value="red">RED</option>
+		<option value="blue">BLUE</option>
+		<option value="green">GREEN</option>
+	</select>
+	<br/><br/><br/><br/>
+	<select name="changeweb" onchange="changeWeb(this)">
+		<option value="">CHOOSE WEB SITE</option>
+		<option value="https://www.google.com/">GOOGLE</option>
+		<option value="https://www.facebook.com/">FACEBOOK</option>
+	</select>
+</div>
+</body>
+</html>

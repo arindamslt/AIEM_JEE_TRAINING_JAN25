@@ -162,7 +162,34 @@ DOM==DOCUMENT OBJECT MODEL
 
 HTML DOCUMENT====BROWSER ENGINE======CONVERT ===BYTES===CONVERTS ====TOKEN===CONVERTS ===NODES
 ULTIMATE FORM THE TREE LIKE STRUCTURE CALLED DOM.
-
+EVENT HANDELLING
+====================================================================
+DATE:28.01.2025
+==============================================================================
+JEE
+============================================================
+JAVA ENTERPRISE EDITION
+DISTRIBUTED SERVER SIDE ENVIROMENT
+ARCHITECTURE
+===========================================
+1.TWO TIER ARCHITECTURE
+2.THREE TIER ARCHITECTURE
+3.n-TIER ARCHITECTURE
+JEE SUPPORT n-TIER ARCHITECTURE
+=========================================================
+SERVLET
+=========================================================================
+SERVER SIDE PROGRAM
+REQUEST RESPONSE ORIENTED PROGRAM
+IT IS ACT AS AN CONTROLLER
+SERVLET IS A NORMAL JAVA CLASS
+import javax.servlet.*;
+import javax.servlet.http.*;
+LIFE CYCLE OF SERVLET
+==========================================
+init()
+service()
+destroy()
 
 
 

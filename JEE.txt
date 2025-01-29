@@ -58,3 +58,8 @@ IN error.jsp
 <h2 style="color:red">SOMETHING WENT WRONG</h2>
 EXCEPTION:<%=exception %>
 =============================================================
+POSTGRESQL
+============================================================
+org.postgresql.Driver
+jdbc:postgresql://localhost:5432/testdb","postgres", "123"
+==============================================================
