@@ -1,0 +1,472 @@
+Enter password: *******
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 77
+Server version: 8.0.35 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| abs                |
+| aec                |
+| aecdb              |
+| aiem               |
+| aiem1              |
+| bootdb             |
+| bootreact          |
+| btrtdb             |
+| dbs                |
+| fdapps             |
+| foodapp            |
+| foodappdb          |
+| foodapps           |
+| fooddb             |
+| fooddbs            |
+| foodsdb            |
+| fullstackdb        |
+| hbdb               |
+| hbdbs              |
+| hbsdb              |
+| hbtestdb           |
+| information_schema |
+| jeedb              |
+| mysql              |
+| performance_schema |
+| restdb             |
+| sys                |
+| test               |
+| testdb             |
+| testing            |
+| testingdb          |
+| tests              |
+| tst                |
++--------------------+
+33 rows in set (0.01 sec)
+
+mysql> CREATE DATABASE JEE;
+Query OK, 1 row affected (0.03 sec)
+
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| abs                |
+| aec                |
+| aecdb              |
+| aiem               |
+| aiem1              |
+| bootdb             |
+| bootreact          |
+| btrtdb             |
+| dbs                |
+| fdapps             |
+| foodapp            |
+| foodappdb          |
+| foodapps           |
+| fooddb             |
+| fooddbs            |
+| foodsdb            |
+| fullstackdb        |
+| hbdb               |
+| hbdbs              |
+| hbsdb              |
+| hbtestdb           |
+| information_schema |
+| jee                |
+| jeedb              |
+| mysql              |
+| performance_schema |
+| restdb             |
+| sys                |
+| test               |
+| testdb             |
+| testing            |
+| testingdb          |
+| tests              |
+| tst                |
++--------------------+
+34 rows in set (0.02 sec)
+
+mysql> USE JEE;
+Database changed
+mysql> SHOW TABLES;
+Empty set (0.03 sec)
+
+mysql> CREATE TABLE CUSTOMER
+    -> (CID  VARCHAR(10),
+    ->  CNAME VARCHAR(25),
+    ->  CPHNO VARCHAR(10)
+    -> );
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> SHOW TABLES;
++---------------+
+| Tables_in_jee |
++---------------+
+| customer      |
++---------------+
+1 row in set (0.02 sec)
+
+mysql> DESC CUSTOMER;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| CID   | varchar(10) | YES  |     | NULL    |       |
+| CNAME | varchar(25) | YES  |     | NULL    |       |
+| CPHNO | varchar(10) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+3 rows in set (0.03 sec)
+
+mysql> INSERT INTO CUSTOMER VALUES('C1','ARUP','7567667');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> SELECT * FROM CUSTOMER;
++------+-------+---------+
+| CID  | CNAME | CPHNO   |
++------+-------+---------+
+| C1   | ARUP  | 7567667 |
++------+-------+---------+
+1 row in set (0.00 sec)
+
+mysql> INSERT INTO CUSTOMER VALUES('C1','ARUP','7567667');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> SELECT * FROM CUSTOMER;
++------+-------+---------+
+| CID  | CNAME | CPHNO   |
++------+-------+---------+
+| C1   | ARUP  | 7567667 |
+| C1   | ARUP  | 7567667 |
++------+-------+---------+
+2 rows in set (0.00 sec)
+
+mysql> CREATE TABLE PRODUCT
+    -> (PID  VARCHAR(10),
+    ->  PNAME VARCHAR(25) NOT NULL,
+    ->  PQTY   DECIMAL,
+    ->  PRICE  DECIMAL,
+    -> .
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.' at line 6
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql> CREATE TABLE PRODUCT
+    -> (PID   VARCHAR(10),
+    ->  PNAME VARCHAR(25) NOT NULL,
+    ->  PQTY  DECIMAL,
+    -> PRICE  DECIMAL,
+    -> CONSTRAINT PRODUCT_PID_PK PRIMARY KEY(PID)
+    -> );
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> DESC PRODUCT;
++-------+---------------+------+-----+---------+-------+
+| Field | Type          | Null | Key | Default | Extra |
++-------+---------------+------+-----+---------+-------+
+| PID   | varchar(10)   | NO   | PRI | NULL    |       |
+| PNAME | varchar(25)   | NO   |     | NULL    |       |
+| PQTY  | decimal(10,0) | YES  |     | NULL    |       |
+| PRICE | decimal(10,0) | YES  |     | NULL    |       |
++-------+---------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> INSERT INTO PRODUCT VALUES('P1','TV',5,25000);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> SELECT * FROM PRODUCT;
++-----+-------+------+-------+
+| PID | PNAME | PQTY | PRICE |
++-----+-------+------+-------+
+| P1  | TV    |    5 | 25000 |
++-----+-------+------+-------+
+1 row in set (0.00 sec)
+
+mysql> INSERT INTO PRODUCT VALUES('P1','TV',5,25000);
+ERROR 1062 (23000): Duplicate entry 'P1' for key 'product.PRIMARY'
+mysql> INSERT INTO PRODUCT VALUES('P2',NULL,5,25000);
+ERROR 1048 (23000): Column 'PNAME' cannot be null
+mysql> CREATE TABLE SALES
+    -> (VOUCHNO INT AUTO_INCREMENT,
+    ->  PID       VARCHAR(10),
+    ->  PQTY      DECIMAL,
+    ->  SLDT       DATE   DEFAULT(CURRENT_DATE)
+    -> );
+ERROR 1075 (42000): Incorrect table definition; there can be only one auto column and it must be defined as a key
+mysql> CREATE TABLE SALES
+    -> (VOUCHNO INT AUTO_INCREMENT PRIMARY KEY,
+    ->  PID       VARCHAR(10),
+    ->  PQTY      DECIMAL,
+    ->  SLDT       DATE   DEFAULT(CURRENT_DATE)
+    -> );
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> DESC SALES;
++---------+---------------+------+-----+-----------+-------------------+
+| Field   | Type          | Null | Key | Default   | Extra             |
++---------+---------------+------+-----+-----------+-------------------+
+| VOUCHNO | int           | NO   | PRI | NULL      | auto_increment    |
+| PID     | varchar(10)   | YES  |     | NULL      |                   |
+| PQTY    | decimal(10,0) | YES  |     | NULL      |                   |
+| SLDT    | date          | YES  |     | curdate() | DEFAULT_GENERATED |
++---------+---------------+------+-----+-----------+-------------------+
+4 rows in set (0.03 sec)
+
+mysql> INSERT INTO SALES(PID,PQTY) VALUES('P1',2);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> SELECT * FROM SALES;
++---------+------+------+------------+
+| VOUCHNO | PID  | PQTY | SLDT       |
++---------+------+------+------------+
+|       1 | P1   |    2 | 2025-01-30 |
++---------+------+------+------------+
+1 row in set (0.00 sec)
+
+mysql> INSERT INTO SALES(PID,PQTY) VALUES('P2',1);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> SELECT * FROM SALES;
++---------+------+------+------------+
+| VOUCHNO | PID  | PQTY | SLDT       |
++---------+------+------+------------+
+|       1 | P1   |    2 | 2025-01-30 |
+|       2 | P2   |    1 | 2025-01-30 |
++---------+------+------+------------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT * FROM PRODUCT;
++-----+-------+------+-------+
+| PID | PNAME | PQTY | PRICE |
++-----+-------+------+-------+
+| P1  | TV    |    5 | 25000 |
++-----+-------+------+-------+
+1 row in set (0.00 sec)
+
+mysql> INSERT INTO PRODUCT VALUES('P2','TAB',2,18000);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> INSERT INTO PRODUCT VALUES('P3','MOBILE',10,12000);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> INSERT INTO PRODUCT VALUES('P4','CONVECTION',15,22000);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> SELECT * FROM PRODUCT;
++-----+------------+------+-------+
+| PID | PNAME      | PQTY | PRICE |
++-----+------------+------+-------+
+| P1  | TV         |    5 | 25000 |
+| P2  | TAB        |    2 | 18000 |
+| P3  | MOBILE     |   10 | 12000 |
+| P4  | CONVECTION |   15 | 22000 |
++-----+------------+------+-------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT PID,PNAME,PRICE FROM PRODUCT;
++-----+------------+-------+
+| PID | PNAME      | PRICE |
++-----+------------+-------+
+| P1  | TV         | 25000 |
+| P2  | TAB        | 18000 |
+| P3  | MOBILE     | 12000 |
+| P4  | CONVECTION | 22000 |
++-----+------------+-------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT PID,PNAME,PQTY,PRICE,PQTY*PRICE FROM PRODUCT;
++-----+------------+------+-------+------------+
+| PID | PNAME      | PQTY | PRICE | PQTY*PRICE |
++-----+------------+------+-------+------------+
+| P1  | TV         |    5 | 25000 |     125000 |
+| P2  | TAB        |    2 | 18000 |      36000 |
+| P3  | MOBILE     |   10 | 12000 |     120000 |
+| P4  | CONVECTION |   15 | 22000 |     330000 |
++-----+------------+------+-------+------------+
+4 rows in set (0.02 sec)
+
+mysql> SELECT PID,PNAME,PQTY,PRICE,PQTY*PRICE TOTALPRICE FROM PRODUCT;
++-----+------------+------+-------+------------+
+| PID | PNAME      | PQTY | PRICE | TOTALPRICE |
++-----+------------+------+-------+------------+
+| P1  | TV         |    5 | 25000 |     125000 |
+| P2  | TAB        |    2 | 18000 |      36000 |
+| P3  | MOBILE     |   10 | 12000 |     120000 |
+| P4  | CONVECTION |   15 | 22000 |     330000 |
++-----+------------+------+-------+------------+
+4 rows in set (0.00 sec)
+
+mysql> UPDATE PRODUCT SET PQTY=12,PRICE=32000 WHERE PID='P1';
+Query OK, 1 row affected (0.03 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT PID,PNAME,PQTY,PRICE,PQTY*PRICE FROM PRODUCT;
++-----+------------+------+-------+------------+
+| PID | PNAME      | PQTY | PRICE | PQTY*PRICE |
++-----+------------+------+-------+------------+
+| P1  | TV         |   12 | 32000 |     384000 |
+| P2  | TAB        |    2 | 18000 |      36000 |
+| P3  | MOBILE     |   10 | 12000 |     120000 |
+| P4  | CONVECTION |   15 | 22000 |     330000 |
++-----+------------+------+-------+------------+
+4 rows in set (0.00 sec)
+
+mysql> DELETE FROM PRODUCT WHERE PID='P4';
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT PID,PNAME,PQTY,PRICE,PQTY*PRICE TOTALPRICE FROM PRODUCT;
++-----+--------+------+-------+------------+
+| PID | PNAME  | PQTY | PRICE | TOTALPRICE |
++-----+--------+------+-------+------------+
+| P1  | TV     |   12 | 32000 |     384000 |
+| P2  | TAB    |    2 | 18000 |      36000 |
+| P3  | MOBILE |   10 | 12000 |     120000 |
++-----+--------+------+-------+------------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT  *  FROM PRODUCT  WHERE PNAME LIKE 'T%';
++-----+-------+------+-------+
+| PID | PNAME | PQTY | PRICE |
++-----+-------+------+-------+
+| P1  | TV    |   12 | 32000 |
+| P2  | TAB   |    2 | 18000 |
++-----+-------+------+-------+
+2 rows in set (0.02 sec)
+
+mysql> SELECT  *  FROM PRODUCT  WHERE PNAME LIKE '_A%';
++-----+-------+------+-------+
+| PID | PNAME | PQTY | PRICE |
++-----+-------+------+-------+
+| P2  | TAB   |    2 | 18000 |
++-----+-------+------+-------+
+1 row in set (0.00 sec)
+
+mysql> DELETE FROM PRODUCT;
+Query OK, 3 rows affected (0.03 sec)
+
+mysql> INSERT INTO PRODUCT VALUES('P2','TAB',2,18000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO PRODUCT VALUES('P3','MOBILE',10,12000);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> INSERT INTO PRODUCT VALUES('P4','CONVECTION',15,22000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO PRODUCT VALUES('P1','TV',15,32000);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> DELETE FROM PRODUCT;
+Query OK, 4 rows affected (0.02 sec)
+
+mysql> INSERT INTO PRODUCT VALUES('P2','TAB',2,18000);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> INSERT INTO PRODUCT VALUES('P1','TV',15,32000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO PRODUCT VALUES('P3','MOBILE',10,12000);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> INSERT INTO PRODUCT VALUES('P4','CONVECTION',15,22000);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> SELECT * FROM PRODUCT;
++-----+------------+------+-------+
+| PID | PNAME      | PQTY | PRICE |
++-----+------------+------+-------+
+| P1  | TV         |   15 | 32000 |
+| P2  | TAB        |    2 | 18000 |
+| P3  | MOBILE     |   10 | 12000 |
+| P4  | CONVECTION |   15 | 22000 |
++-----+------------+------+-------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT * FROM PRODUCT ORDER BY PNAME;
++-----+------------+------+-------+
+| PID | PNAME      | PQTY | PRICE |
++-----+------------+------+-------+
+| P4  | CONVECTION |   15 | 22000 |
+| P3  | MOBILE     |   10 | 12000 |
+| P2  | TAB        |    2 | 18000 |
+| P1  | TV         |   15 | 32000 |
++-----+------------+------+-------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT * FROM PRODUCT ORDER BY PNAME DESC;
++-----+------------+------+-------+
+| PID | PNAME      | PQTY | PRICE |
++-----+------------+------+-------+
+| P1  | TV         |   15 | 32000 |
+| P2  | TAB        |    2 | 18000 |
+| P3  | MOBILE     |   10 | 12000 |
+| P4  | CONVECTION |   15 | 22000 |
++-----+------------+------+-------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT * FROM PRODUCT;
++-----+------------+------+-------+
+| PID | PNAME      | PQTY | PRICE |
++-----+------------+------+-------+
+| P1  | TV         |   15 | 32000 |
+| P2  | TAB        |    2 | 18000 |
+| P3  | MOBILE     |   10 | 12000 |
+| P4  | CONVECTION |   15 | 22000 |
++-----+------------+------+-------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT * FROM SALES;
++---------+------+------+------------+
+| VOUCHNO | PID  | PQTY | SLDT       |
++---------+------+------+------------+
+|       1 | P1   |    2 | 2025-01-30 |
+|       2 | P2   |    1 | 2025-01-30 |
++---------+------+------+------------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT P.PID,P.PNAME,P.PQTY,P.PRICE,S.VOUCHMO,S.PQTY SOLDQTY,S.SLDT
+    -> FROM PRODUCT P,SALES S
+    -> WHERE P.PID=S.PID;
+ERROR 1054 (42S22): Unknown column 'S.VOUCHMO' in 'field list'
+mysql> SELECT P.PID,P.PNAME,P.PQTY,P.PRICE,S.VOUCHNO,S.PQTY SOLDQTY,S.SLDT
+    -> FROM PRODUCT P,SALES S
+    -> WHERE P.PID=S.PID;
++-----+-------+------+-------+---------+---------+------------+
+| PID | PNAME | PQTY | PRICE | VOUCHNO | SOLDQTY | SLDT       |
++-----+-------+------+-------+---------+---------+------------+
+| P1  | TV    |   15 | 32000 |       1 |       2 | 2025-01-30 |
+| P2  | TAB   |    2 | 18000 |       2 |       1 | 2025-01-30 |
++-----+-------+------+-------+---------+---------+------------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT P.PID,P.PNAME,P.PQTY,P.PRICE,S.VOUCHNO,S.PQTY SOLDQTY,S.SLDT,P.PQTY-S.PQTY STOCK
+    -> FROM PRODUCT P,SALES S
+    -> WHERE P.PID=S.PID;
++-----+-------+------+-------+---------+---------+------------+-------+
+| PID | PNAME | PQTY | PRICE | VOUCHNO | SOLDQTY | SLDT       | STOCK |
++-----+-------+------+-------+---------+---------+------------+-------+
+| P1  | TV    |   15 | 32000 |       1 |       2 | 2025-01-30 |    13 |
+| P2  | TAB   |    2 | 18000 |       2 |       1 | 2025-01-30 |     1 |
++-----+-------+------+-------+---------+---------+------------+-------+
+2 rows in set (0.02 sec)
