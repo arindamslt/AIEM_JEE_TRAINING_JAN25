@@ -1,0 +1,21 @@
+#navMain{
+		/*background-color: red;*/
+		display: flex;
+	}
+	#navLeft{
+		background-color:black;
+		color:white;
+		width: 30%;
+		text-align: center;
+	}
+	#navRight{
+		width: 70%;
+		display: flex;
+		background-color:black;
+		color:white;
+		a{
+			color:white;
+			text-decoration: none;
+			margin:25px auto;
+		}
+	}
